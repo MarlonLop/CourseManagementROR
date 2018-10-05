@@ -20,5 +20,13 @@
   <%= @course.credit_hours %>
 </p>
 
+<p>
+  <%@course.sections.each do |section| %>
+
+    <%= link_to "#{Section}: #{section.section_number}",
+                section_path(section.semester) %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
