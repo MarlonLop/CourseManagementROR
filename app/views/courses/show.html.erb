@@ -21,11 +21,15 @@
 </p>
 
 <p>
-  <%@course.sections.each do |section| %>
-
-    <%= link_to "#{Section}: #{section.section_number}",
-                section_path(section.semester) %>
-  <% end %>
+  <strong>Sections:</strong>
+  <ul>
+    <%@course.sections.each do |section| %>
+      <li>
+        <%= link_to "#{Section} #{section.section_number}",
+                   section_path(section.id) %>
+      </li>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
