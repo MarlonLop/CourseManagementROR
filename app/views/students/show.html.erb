@@ -10,5 +10,16 @@
   <%= @student.student_number %>
 </p>
 
+<p>
+  <strong>Enrollments:</strong>
+    <ul>
+      <% @student.sections.each do |section| %>
+      <li>
+        <%= link_to section.course.name, section_path(section.id) %>
+      </li>
+     <% end %>
+    </ul>
+</p>
+
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
