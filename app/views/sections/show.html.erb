@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Course:</strong>
+  <%= @section.course.name %>
+</p>
+
+<p>
   <strong>Semester:</strong>
   <%= @section.semester %>
 </p>
@@ -16,8 +21,14 @@
 </p>
 
 <p>
-  <strong>Course:</strong>
-  <%= @section.course.name %>
+  <strong>Students Enrolled:</strong>
+  <ul>
+    <% @section.students.each  do |student| %>
+      <li>
+        <%= link_to student.name, student_path(student.id) %>
+      </li>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_section_path(@section) %> |
