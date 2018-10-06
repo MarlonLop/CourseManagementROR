@@ -7,6 +7,7 @@ class StudentsController < ApplicationController
     @students = Student.all
   end
 
+  # GET search students
   def search
     @students = Student.where("name LIKE ?", "%#{params[:query]}%")
     render :index

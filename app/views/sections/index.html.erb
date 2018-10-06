@@ -2,6 +2,11 @@
 
 <h1>Sections</h1>
 
+<%= form_tag(search_sections_url, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Search Sections #" %>
+  <%= submit_tag "Search", :semester => nil %>
+<%end %>
+
 <table>
   <thead>
     <tr>

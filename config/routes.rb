@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :students, :courses, :sections do
+  resources :students, :sections, :courses do
     collection do
       get 'search'
     end

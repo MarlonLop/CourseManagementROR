@@ -7,6 +7,13 @@ class SectionsController < ApplicationController
     @sections = Section.all
   end
 
+  # GET search sections
+  def search
+    @sections = Section.where("semester LIKE ? OR section_number LIKE ?",
+                              "%#{params[:query]}", "%#{params[:query]}")
+    render :index
+  end
+
   # GET /sections/1
   # GET /sections/1.json
   def show
