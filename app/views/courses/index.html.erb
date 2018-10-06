@@ -2,6 +2,11 @@
 
 <h1>Courses</h1>
 
+<%= form_tag(search_courses_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Search Course" %>
+  <%= submit_tag "Search", :name => nil %>
+  <% end %>
+
 <table>
   <thead>
     <tr>

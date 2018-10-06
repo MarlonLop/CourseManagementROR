@@ -7,6 +7,12 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
+  # GET course search
+  def search
+    @courses = Course.where("name LIKE ?", "%#{params[:query]}%")
+    render :index
+  end
+
   # GET /courses/1
   # GET /courses/1.json
   def show
@@ -69,6 +75,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :department, :number, :credit_hours)
+      params.require(:course).permit(:name, :department, :number, :credit_hours, :query)
     end
 end
