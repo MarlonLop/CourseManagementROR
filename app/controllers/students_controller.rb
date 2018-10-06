@@ -7,9 +7,8 @@ class StudentsController < ApplicationController
     @students = Student.all
   end
 
-  #Search method
   def search
-    @student = Student.where("name like ?", "%#{params[:query]}%")
+    @students = Student.where("name LIKE ?", "%#{params[:query]}%")
     render :index
   end
 
@@ -69,12 +68,14 @@ class StudentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_student
+
+   def set_student
       @student = Student.find(params[:id])
-    end
+   end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :student_number)
+      params.require(:student).permit(:name, :student_number, :query)
     end
 end
