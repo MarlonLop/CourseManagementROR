@@ -5,6 +5,10 @@ class EnrollmentsControllerTest < ActionDispatch::IntegrationTest
     @enrollment = enrollments(:one)
   end
 
+  test "wont find non-existing student enrollment" do
+    assert Enrollment.joins(:student).where("students.name LIKE?", "not a student").length == 0
+  end
+
   test "should get index" do
     get enrollments_url
     assert_response :success
