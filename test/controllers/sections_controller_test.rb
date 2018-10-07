@@ -5,6 +5,10 @@ class SectionsControllerTest < ActionDispatch::IntegrationTest
     @section = sections(:one)
   end
 
+  test "won't find non-existing section" do
+    assert Section.where("section_number LIKE ?", "3").length == 0
+  end
+
   test "should get index" do
     get sections_url
     assert_response :success
