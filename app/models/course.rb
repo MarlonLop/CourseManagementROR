@@ -5,6 +5,6 @@ class Course < ApplicationRecord
   validates :name, uniqueness: true, length: 3..80
   validates :department, presence: true, length: 3..30
   validates :number, uniqueness: true, length: 5..8
-  validates :credit_hours, numericality: { only_integer: true }, length:
-      { is: 1 }
+  validates :credit_hours, numericality: { only_integer: true, other_than: 0 },
+          length: { is: 1 }
 end
