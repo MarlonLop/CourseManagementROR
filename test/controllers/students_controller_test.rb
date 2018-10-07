@@ -5,6 +5,14 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
     @student = students(:one)
   end
 
+  test "won't find non-existing student" do
+    assert Student.where("name LIKE ?", "Will").length == 0
+  end
+
+  test "will find existing student" do
+    assert Student.where("student_number LIKE ?", "222222").length == 1
+  end
+
   test "should get index" do
     get students_url
     assert_response :success
@@ -18,7 +26,7 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
   test "should create student" do
     assert_difference('Student.count') do
       post students_url, params: { student: { name: @student.name,
-                                  student_number: @student.student_number } }
+                                  student_number: "333333" } }
     end
 
     assert_redirected_to student_url(Student.last)
