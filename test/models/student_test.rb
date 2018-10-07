@@ -27,7 +27,7 @@ class StudentTest < ActiveSupport::TestCase
   end
 
   test "student number is 6 digits" do
-    student = Student.new(name: "Billy Bob",
+    student = Student.new(name: 'Billy Bob',
                           student_number: 10000)
     assert student.invalid?
     student.student_number = 123456

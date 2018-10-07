@@ -5,7 +5,7 @@ class Section < ApplicationRecord
 
   # New sections validations
   validates :semester, length: { minimum: 9, maximum: 11, message:
-            'Ex.(Fall 2018), maximum 11 characters'}
+            'Ex.(Fall 2018), maximum 11 characters' }
   validates :section_number, length: 1..2,
             numericality: { only_integer: true, other_than: 0,
                             less_than_or_equal_to: 20 }
