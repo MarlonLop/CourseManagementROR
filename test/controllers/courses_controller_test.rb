@@ -5,6 +5,10 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
     @course = courses(:one)
   end
 
+  test "won't find non existing course" do
+    assert Course.where("name LIKE ?", "Course 3").length == 0
+  end
+
   test "should get index" do
     get courses_url
     assert_response :success
@@ -17,7 +21,8 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create course" do
     assert_difference('Course.count') do
-      post courses_url, params: { course: { credit_hours: @course.credit_hours, department: @course.department, name: @course.name, number: @course.number } }
+      post courses_url, params: { course: { credit_hours: @course.credit_hours,
+                    department: @course.department, name: 'MyString3', number: 'Course3' } }
     end
 
     assert_redirected_to course_url(Course.last)

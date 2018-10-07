@@ -3,11 +3,11 @@
 one:
   name: MyString
   department: MyString
-  number: MyString
+  number: Course1
   credit_hours: 1
 
 two:
-  name: MyString
+  name: MyString2
   department: MyString
-  number: MyString
+  number: Course2
   credit_hours: 1
