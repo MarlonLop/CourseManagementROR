@@ -7,6 +7,12 @@ class EnrollmentsController < ApplicationController
     @enrollments = Enrollment.all
   end
 
+  # GET enrollment search
+  def search
+    @enrollments = Enrollment.joins(:student).where("students.name LIKE ?", "%#{params[:query]}")
+    render :index
+  end
+
   # GET /enrollments/1
   # GET /enrollments/1.json
   def show
@@ -69,6 +75,6 @@ class EnrollmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def enrollment_params
-      params.require(:enrollment).permit(:student_id, :section_id)
+      params.require(:enrollment).permit(:student_id, :section_id, :query)
     end
 end
