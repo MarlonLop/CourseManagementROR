@@ -3,7 +3,7 @@
 <h1>Students</h1>
 
 <%= form_tag(search_students_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :query, params[:query], placeholder: "Search Student name" %>
+  <%= text_field_tag :query, params[:query], placeholder: "Student name or #" %>
   <%= submit_tag "Search", :name => nil %>
 <%end %>
 
