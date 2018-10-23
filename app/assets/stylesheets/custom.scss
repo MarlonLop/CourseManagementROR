@@ -9,6 +9,10 @@ h1 {
   text-align: left;
 }
 
+header {
+  color: black;
+}
+
 .mainbar {
   list-style: none;
   li {
@@ -17,12 +21,20 @@ h1 {
   }
 }
 
-#li:hover {
-  color: ghostwhite;
+button {
+
 }
 
-header {
-  color: black;
+.results {
+  margin-bottom: 10px;
+}
+
+.sbar {
+  margin-bottom: 10px;
+}
+
+#li:hover {
+  color: ghostwhite;
 }
 
 .navbar {
