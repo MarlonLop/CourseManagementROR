@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :students, :sections, :courses, :enrollments do
     collection do
       get 'search'
