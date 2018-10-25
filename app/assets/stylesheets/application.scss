@@ -18,12 +18,8 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 15px;
-  margin-top: 15px;
+  margin-top: 10px;
   text-align: left;
-}
-
-header {
-  color: black;
 }
 
 .mainbar {
@@ -34,8 +30,8 @@ header {
   }
 }
 
-session {
-  text-align: right;
+nav-item {
+  text-decoration: none;
 }
 
 button {
@@ -46,14 +42,11 @@ button {
   margin-bottom: 10px;
 }
 
-.sbar {
-  margin-bottom: 10px;
+#td {
+  padding-left: 35px;
+  padding-right: 15px;
 }
 
 #li:hover {
   color: ghostwhite;
-}
-
-.navbar {
-
 }

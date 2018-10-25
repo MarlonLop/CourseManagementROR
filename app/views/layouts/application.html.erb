@@ -16,10 +16,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active"><%= link_to 'Courses', courses_url %></a>
-        <a class="nav-item nav-link" href="#"><%= link_to 'Sections',   sections_url %></a>
-        <a class="nav-item nav-link" href="#"><%= link_to 'Students', students_url %></a>
-        <a class="nav-item nav-link" href="#"><%= link_to 'Enrollments', enrollments_url %></a>
+        <a class="nav-item nav-link" ><%= link_to 'Courses', courses_url %></a>
+        <a class="nav-item nav-link" ><%= link_to 'Sections',   sections_url %></a>
+        <a class="nav-item nav-link" ><%= link_to 'Students', students_url %></a>
+        <a class="nav-item nav-link" ><%= link_to 'Enrollments', enrollments_url %></a>
         <% if !user_signed_in?%>
           <a id="session" class="nav-item nav-link"><%= link_to 'Sign in', new_user_session_path %></a>
           <a id="session" class="nav-item nav-link" ><%= link_to 'Sign up', new_user_registration_path %></a>
@@ -35,7 +35,7 @@
   <p class="alert"><%= alert %></p>
 
   <%# if notice != alert %>
-  <p class="notice"><%= notice %></p>
+<!--  <p class="notice"><%#= notice %></p>-->
 
   <%# end %>
 
