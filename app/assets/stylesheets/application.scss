@@ -29,12 +29,22 @@ h1 {
     margin-left: 15px;
   }
 }
-
-nav-item {
+.nav-link {
   text-decoration: none;
 }
 
-button {
+.nav-item {
+  .nav-link {
+    text-decoration: none;
+  }
+}
+
+#session {
+  text-decoration: none;
+}
+
+.button {
+  color: white;
 
 }
 
@@ -42,9 +52,13 @@ button {
   margin-bottom: 10px;
 }
 
-#td {
-  padding-left: 35px;
-  padding-right: 15px;
+td {
+  padding: 5px;
+
+}
+
+.sbar {
+  margin-left: 5px;
 }
 
 #li:hover {
