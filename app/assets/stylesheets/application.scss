@@ -14,53 +14,6 @@
  */
 @import "bootstrap";
 
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 15px;
-  margin-top: 10px;
-  text-align: left;
-}
-
-.mainbar {
-  list-style: none;
-  li {
-    float: left;
-    margin-left: 15px;
-  }
-}
-.nav-link {
-  text-decoration: none;
-}
-
-.nav-item {
-  .nav-link {
-    text-decoration: none;
-  }
-}
-
-#session {
-  text-decoration: none;
-}
-
-.button {
-  color: white;
-
-}
-
-.results {
-  margin-bottom: 10px;
-}
-
-td {
-  padding: 5px;
-
-}
-
-.sbar {
-  margin-left: 5px;
-}
-
-#li:hover {
-  color: ghostwhite;
+.nav-item.nav-link.session {
+color: #B00100 !important;
 }
