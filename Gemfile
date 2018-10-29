@@ -60,3 +60,5 @@ gem 'bootstrap', '~> 4.1.3'
 
 # authentication
 gem 'devise'
+
+gem 'sprockets', '~> 3.0'

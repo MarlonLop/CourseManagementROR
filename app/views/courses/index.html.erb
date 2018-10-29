@@ -3,12 +3,13 @@
 
 <h1>Courses</h1>
 
-<div class="sbar">
+
   <%= form_tag(search_courses_url, :method => "get", id: "search-form") do %>
   <%= text_field_tag :query, params[:query], placeholder: "Search Course" %>
-  <%= submit_tag "Search", :name => nil %>
+  <input class="btn btn-secondary btn-sm" type="submit" value="Search">
+
   <% end %>
-</div>
+
 
 <div id="results"></div>
 
@@ -42,7 +43,8 @@
         <% if user_signed_in? %>
           <td><%= link_to 'Show', course %></td>
           <td><%= link_to 'Edit', edit_course_path(course) %></td>
-          <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', course, method: :delete, data:
+                          { confirm: 'Are you sure?' } %></td>
         <%end %>
       </tr>
     <% end %>
@@ -51,7 +53,8 @@
 
 <br>
 <% if user_signed_in? %>
-  <%= link_to 'New Course', new_course_path %>
+  <button type="button" class="btn btn-dark"><%= link_to 'New Course', new_course_path %></button>
+
 <%end %>
 
-<!--<button> <%#= link_to 'New Course', new_course_path %></button>-->
+

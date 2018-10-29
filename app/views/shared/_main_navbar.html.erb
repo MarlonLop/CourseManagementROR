@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="#">University</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -10,10 +11,10 @@
             <a class="nav-item nav-link" ><%= link_to 'Students', students_url %></a>
             <a class="nav-item nav-link" ><%= link_to 'Enrollments', enrollments_url %></a>
             <% if user_signed_in?%>
-              <a class="nav-item nav-link session" ><%= link_to 'Sign out', destroy_user_session_path, method: "delete" %></a>
+              <a class="nav-item nav-link session" ><%= link_to 'Sign out', destroy_user_session_url, method: "delete" %></a>
             <% else %>
-              <a class="nav-item nav-link session" ><%= link_to 'Sign in', new_user_session_path %></a>
-              <a class="nav-item nav-link session" ><%= link_to 'Sign up', new_user_registration_path %></a>
+              <a class="nav-item nav-link session" ><%= link_to 'Sign in', new_user_session_url %></a>
+              <a class="nav-item nav-link session" ><%= link_to 'Sign up', new_user_registration_url %></a>
             <% end %>
 
         </div>
