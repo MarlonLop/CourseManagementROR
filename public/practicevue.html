@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>University (SPA)</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1>University</h1>
+<div id="data">
+
+    <button v-on:click="courses_selected=true, sections_selected=false, students_selected=false">Courses</button>
+    <button v-on:click="sections_selected=true, courses_selected=false, students_selected=false">Sections</button>
+    <button v-on:click="students_selected=true, sections_selected=false, courses_selected=false">Students</button>
+    <ul>
+        <span v-if="sections_selected">
+            <h2>{{ section_h2 }}</h2>
+            <div v-for="section in sections">
+                <li>Section {{section.section_number}} | Room {{section.room_number}}</li>
+                <div v-for="course in courses">
+                    <ul>
+                        <span v-if="section.course_id === course.id">
+                           <li>Course: {{course.name}}
+                           </li>
+                        </span>
+                    </ul>
+                </div>
+
+            </div>
+        </span>
+        <span v-else-if="courses_selected">
+            <h2>{{ course_h2 }}</h2>
+            <div v-for="course in courses">
+                <li>{{course.name}}</li>
+                <div v-for="section in sections">
+                    <ul>
+                        <span v-if="section.course_id === course.id">
+                           <li>Section {{section.section_number}} | Room {{section.room_number}} |
+                                Semester {{section.semester}} | Credits {{course.credit_hours}}
+                           </li>
+                        </span>
+                    </ul>
+                </div>
+            </div>
+        </span>
+        <span v-else-if="students_selected">
+            <h2>{{ student_h2 }}</h2>
+            <div v-for="student in students">
+                <li>{{student.name}} | # {{student.student_number}}</li>
+                <div v-for="enrollment in enrollments">
+                    <ul>
+                        <span v-if="student.id === enrollment.student_id">
+                            <div v-for="section in sections">
+                                 <span v-if="section.id === enrollment.section_id">
+                                    <span v-if="student.id === enrollment.student_id">
+                                        <div v-for="course in courses">
+                                            <span v-if="course.id === section.course_id">
+                                                 <li>Section {{section.section_number}} |
+                                                     Room {{section.room_number}} | {{course.name}}
+                                                 </li>
+                                            </span>
+                                        </div>
+                                    </span>
+                                 </span>
+                            </div>
+                        </span>
+                    </ul>
+                </div>
+            </div>
+        </span>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    var ItemsVue = new Vue({
+        el: '#data',
+        data: { sections: [],
+            courses_selected: false,
+            sections_selected: false,
+            students_selected: false,
+            courses: [],
+            students: [],
+            enrollments: [],
+            course_h2: 'Courses',
+            section_h2: 'Sections',
+            student_h2: 'Students' },
+        mounted: function() {
+            axios.get('http://localhost:3000/sections.json')
+                .then(response => { this.sections = response.data })
+                .catch(error => { console.log(error); });
+            axios.get('http://localhost:3000/courses.json')
+                .then(response => { this.courses = response.data })
+                .catch(error => { console.log(error); });
+            axios.get('http://localhost:3000/students.json')
+                .then(response => { this.students = response.data })
+                .catch(error => { console.log(error); });
+            axios.get('http://localhost:3000/enrollments.json')
+                .then(response => { this.enrollments = response.data })
+                .catch(error => { console.log(error); });
+        }
+    });
+</script>
+
+</body>
+</html>
