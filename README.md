@@ -1,10 +1,10 @@
 # README
 
 This is a simple Ruby on Rails app which manages the courses, sections, and students for a University
-To start the app type 
-'''
-rails s 
-'''
+to start the app type 
+```
+rails s
+```
 
 This app implements the 'devise gem' to create and handle users
 
