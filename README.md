@@ -1,23 +1,15 @@
 # README
 
-<b>This is a simple Ruby on Rails app which manages the courses, sections, and students for a University<b>
+This is a simple Ruby on Rails app which manages the courses, sections, and students for a University
+To start the app type 
+'''
+rails s 
+'''
+
+This app implements the 'devise gem' to create and handle users
+
 
 Things you may want to cover:
 
-* Ruby version
+* RoR gem 'rails', '~> 5.1.6'
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
